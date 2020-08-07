@@ -53,3 +53,10 @@ class Registration(models.Model):
         "school.Course", verbose_name="Curso", on_delete=models.CASCADE
     )
     period = models.CharField("Período", max_length=1, choices=PERIOD_CHOICES)
+
+    class Meta:
+        verbose_name = "Matrícula"
+        verbose_name_plural = "Matrículas"
+
+    def __str__(self):
+        return f"{self.student} - {self.course}"

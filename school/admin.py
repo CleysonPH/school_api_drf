@@ -22,4 +22,3 @@ class CourseModelAdmin(admin.ModelAdmin):
 class RegistrationModelAdmin(admin.ModelAdmin):
     list_display = ["id", "student", "course", "period"]
     list_display_links = ["id"]
-

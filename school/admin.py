@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from school.models import Student, Course
+from school.models import Student, Course, Registration
 
 
 @admin.register(Student)
@@ -16,3 +16,10 @@ class CourseModelAdmin(admin.ModelAdmin):
     list_display = ["id", "code", "description"]
     list_display_links = ["id", "code"]
     search_fields = ["code"]
+
+
+@admin.register(Registration)
+class RegistrationModelAdmin(admin.ModelAdmin):
+    list_display = ["id", "student", "course", "period"]
+    list_display_links = ["id"]
+

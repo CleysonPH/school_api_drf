@@ -9,3 +9,10 @@ class StudentViewSet(viewsets.ModelViewSet):
 
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+
+
+class CourseViewSet(viewsets.ModelViewSet):
+    """"Show all courses in the database"""
+
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer

@@ -16,4 +16,3 @@ class CourseModelAdmin(admin.ModelAdmin):
     list_display = ["id", "code", "description"]
     list_display_links = ["id", "code"]
     search_fields = ["code"]
-

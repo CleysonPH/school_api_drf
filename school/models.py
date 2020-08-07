@@ -37,3 +37,19 @@ class Course(models.Model):
 
     def __str__(self):
         return self.code
+
+
+class Registration(models.Model):
+    PERIOD_CHOICES = (
+        ("M", "Matutino"),
+        ("V", "Verpertino"),
+        ("N", "Noturno"),
+    )
+
+    student = models.ForeignKey(
+        "school.Student", verbose_name="Aluno", on_delete=models.CASCADE
+    )
+    course = models.ForeignKey(
+        "school.Course", verbose_name="Curso", on_delete=models.CASCADE
+    )
+    period = models.CharField("Período", max_length=1, choices=PERIOD_CHOICES)

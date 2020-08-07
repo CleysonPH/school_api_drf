@@ -43,7 +43,7 @@ DJANGO_APPS = [
 
 THIRD_APPS = []
 
-MY_APPS = []
+MY_APPS = ["school.apps.SchoolConfig"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + MY_APPS
 

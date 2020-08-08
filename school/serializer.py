@@ -31,3 +31,15 @@ class StudentRegistrationsSerializer(serializers.ModelSerializer):
 
     def get_period(self, obj):
         return obj.get_period_display()
+
+
+class CourseRegistrationsSerializer(serializers.ModelSerializer):
+    student = serializers.ReadOnlyField(source="student.name")
+    period = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Registration
+        fields = ["student", "period"]
+
+    def get_period(self, obj):
+        return obj.get_period_display()

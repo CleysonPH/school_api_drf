@@ -20,7 +20,7 @@ class Student(models.Model):
 class Course(models.Model):
     LEVEL_CHOICES = (("B", "Básico"), ("I", "Intermediário"), ("A", "Avançado"))
 
-    code = models.CharField("Código", max_length=10)
+    code = models.CharField("Código", max_length=10, unique=True)
     description = models.CharField("Descrição", max_length=100)
     level = models.CharField(
         "Nível",

@@ -6,6 +6,7 @@ from school.views import (
     CourseViewSet,
     RegistrationViewSet,
     StudentRegistrations,
+    CourseRegistrations,
 )
 
 
@@ -18,5 +19,14 @@ router.register("registrations", RegistrationViewSet, basename="registration")
 app_name = "school-api"
 urlpatterns = [
     path("", include(router.urls)),
-    path("students/<int:pk>/registrations", StudentRegistrations.as_view()),
+    path(
+        "students/<int:pk>/registrations",
+        StudentRegistrations.as_view(),
+        name="student-registations-list",
+    ),
+    path(
+        "courses/<int:pk>/registrations",
+        CourseRegistrations.as_view(),
+        name="course-registations-list",
+    ),
 ]

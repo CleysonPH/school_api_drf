@@ -6,6 +6,7 @@ from school.serializer import (
     CourseSerializer,
     RegistrationSerializer,
     StudentRegistrationsSerializer,
+    CourseRegistrationsSerializer,
 )
 
 
@@ -37,3 +38,12 @@ class StudentRegistrations(generics.ListAPIView):
 
     def get_queryset(self):
         return Registration.objects.filter(student_id=self.kwargs.get("pk"))
+
+
+class CourseRegistrations(generics.ListAPIView):
+    """Show the students of a specific course"""
+
+    serializer_class = CourseRegistrationsSerializer
+
+    def get_queryset(self):
+        return Registration.objects.filter(course_id=self.kwargs.get("pk"))

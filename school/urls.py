@@ -20,12 +20,12 @@ app_name = "school-api"
 urlpatterns = [
     path("", include(router.urls)),
     path(
-        "students/<int:pk>/registrations",
+        "students/<int:pk>/registrations/",
         StudentRegistrations.as_view(),
         name="student-registations-list",
     ),
     path(
-        "courses/<int:pk>/registrations",
+        "courses/<int:pk>/registrations/",
         CourseRegistrations.as_view(),
         name="course-registations-list",
     ),

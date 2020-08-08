@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueTogetherValidator
 
 from school.models import Student, Course, Registration
 
@@ -19,6 +20,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = "__all__"
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Registration.objects.all(),
+                fields=["student", "period"],
+                message="A student can be only registered in one course per period",
+            )
+        ]
 
 
 class StudentRegistrationsSerializer(serializers.ModelSerializer):

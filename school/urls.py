@@ -1,7 +1,12 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from school.views import StudentViewSet, CourseViewSet, RegistrationViewSet
+from school.views import (
+    StudentViewSet,
+    CourseViewSet,
+    RegistrationViewSet,
+    StudentRegistrations,
+)
 
 
 router = routers.DefaultRouter()
@@ -11,4 +16,7 @@ router.register("registrations", RegistrationViewSet, basename="registration")
 
 
 app_name = "school-api"
-urlpatterns = [path("", include(router.urls))]
+urlpatterns = [
+    path("", include(router.urls)),
+    path("students/<int:pk>/registrations", StudentRegistrations.as_view()),
+]
